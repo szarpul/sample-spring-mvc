@@ -9,6 +9,8 @@
     <version>1.0.0</version>
     <packaging>war</packaging>
 
+    <name>Showcase project for Spring MVC 4.3.4</name>
+
     <dependencies>
 
         <dependency>
