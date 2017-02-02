@@ -12,7 +12,7 @@ public class AccountConverter implements Converter<String, Account> {
     public Account convert(String accountNr) {
         Account account = new Account();
         account.setNumber(accountNr);
-        account.setDesc("Account nr: " + accountNr);
+        account.setDesc("This is sample account created by AccountConverter. Nr: " + accountNr);
         return account;
     }
 }

@@ -111,7 +111,7 @@ public class HelloJspController {
     public void createAccount(@RequestParam(required = false) String accountNr, Model model) {
         Account account = new Account();
         account.setNumber(accountNr);
-        account.setDesc(String.format("This is sample account. Nr: %s", accountNr));
+        account.setDesc(String.format("This is sample account create by method-level @ModelAttribute. Nr: %s", accountNr));
         model.addAttribute("accountFromParam", account);
     }
 
