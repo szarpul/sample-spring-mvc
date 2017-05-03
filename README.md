@@ -7,4 +7,4 @@ You can find here some basic examples of how to use:
  - interceptors
  - exception handling
  - controllers in combination with template engines such as jsp or freemarker
-and many others.
+and many others
