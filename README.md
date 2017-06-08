@@ -1,4 +1,4 @@
-#Showcase project for Spring MVC 4.3.4
+# Showcase project for Spring MVC 4.3.4
 Main goal of this project is to show basic Spring MVC features in action.
 You can find here some basic examples of how to use:
  - multiple Spring MVC servlets
@@ -7,4 +7,4 @@ You can find here some basic examples of how to use:
  - interceptors
  - exception handling
  - controllers in combination with template engines such as jsp or freemarker
-and many others.
+and many others
