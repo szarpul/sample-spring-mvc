@@ -14,7 +14,7 @@
     <!--Registers RequestMappingHandlerMapping, a RequestMappingHandlerAdapter, and an ExceptionHandlerExceptionResolver.-->
     <!--For more info go to: https://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html#mvc-config-->
     <!--Side note:-->
-    <!--With no 'annotation-driven' DefaultAnnotationHandlerMapping wil be registered insteadof RequestMappingHandlerMapping.-->
+    <!--With no 'annotation-driven' DefaultAnnotationHandlerMapping will be registered insteadof RequestMappingHandlerMapping.-->
     <!--If you register RequestMappingHandlerMapping manually without 'annotation-driven', you have to also register RequestMappingHandlerAdapter for it.-->
     <mvc:annotation-driven conversion-service="conversionService"/>
 
@@ -29,7 +29,7 @@
           class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
 
         <!--This bean is next to original RequestMappingHandlerMapping, so we have to specify its order-->
-        <!--so that is will be chosen before original one in DispatcherServlet.-->
+        <!--so that it will be chosen before original one in DispatcherServlet.-->
         <property name="order" value="-1"/>
 
         <property name="interceptors">
