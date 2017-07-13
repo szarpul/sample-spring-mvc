@@ -107,12 +107,28 @@ public class HelloJspController {
         return String.format("<h1>Hello! %s</h1>", account.getDesc());
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/account/path/{accountNr}")
+    public String helloAccountPath(@ModelAttribute("accountFromPath") Account account) {
+
+        return String.format("<h1>Hello! %s</h1>", account.getDesc());
+    }
+
+
     @ModelAttribute
     public void createAccount(@RequestParam(required = false) String accountNr, Model model) {
         Account account = new Account();
         account.setNumber(accountNr);
-        account.setDesc(String.format("This is sample account create by method-level @ModelAttribute. Nr: %s", accountNr));
+        account.setDesc(String.format("This is sample account create by method-level @ModelAttribute from request param. Nr: %s", accountNr));
         model.addAttribute("accountFromParam", account);
+    }
+
+    @ModelAttribute
+    public void createAccountFromPath(@PathVariable(required = false) String accountNr, Model model) {
+        Account account = new Account();
+        account.setNumber(accountNr);
+        account.setDesc(String.format("This is sample account create by method-level @ModelAttribute from path variable. Nr: %s", accountNr));
+        model.addAttribute("accountFromPath", account);
     }
 
     // ############################################################
