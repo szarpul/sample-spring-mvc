@@ -7,6 +7,7 @@ import com.intive.samples.spring.mvc.samples.Client;
 import com.intive.samples.spring.mvc.samples.ClientPropertyEditor;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -107,11 +108,27 @@ public class HelloJspController {
         return String.format("<h1>Hello! %s</h1>", account.getDesc());
     }
 
+    //Account is retrieved from path variable via @ModelAttribute method.
     @ResponseBody
     @RequestMapping(value = "/account/path/{accountNr}")
     public String helloAccountPath(@ModelAttribute("accountFromPath") Account account) {
 
         return String.format("<h1>Hello! %s</h1>", account.getDesc());
+    }
+
+    //Account is retrieved from path variable via @ModelAttribute method.
+    @ResponseBody
+    @RequestMapping(value = "/account/client/")
+    public String helloClientAccountParam(@ModelAttribute("accountFromParam") Account account, @ModelAttribute("clientFromParam") Client client) {
+        return String.format("<h1>Hello %s! %s</h1>", client.toString(), account.getDesc());
+    }
+
+    @ModelAttribute
+    public void createClientFromParam(@RequestParam(required = false) String firstName, @RequestParam(required = false) String surname, Model model) {
+        Client client = new Client();
+        client.setFirstName(firstName);
+        client.setSurname(surname);
+        model.addAttribute("clientFromParam", client);
     }
 
 
@@ -141,7 +158,7 @@ public class HelloJspController {
     }
 
     @RequestMapping("/excel")
-    public String createExcel(){
+    public String createExcel() {
         return "excelView";
     }
 
